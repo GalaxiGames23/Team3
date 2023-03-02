@@ -14,7 +14,7 @@ var store_position : Vector2 = Vector2.ZERO
 var freeze       : bool = false
 var flag_dropped : bool = false
 
-var speed : float = 125.0
+export var speed : float = 125.0
 
 func _ready():
 	anim_tree.active = true
