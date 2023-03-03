@@ -10,6 +10,7 @@ var current_focus
 func _ready():
 	var p = get_tree().get_nodes_in_group("Player")
 	current_focus = p[0]
+	current_focus.myCamera = self
 
 func _physics_process(delta):
 	if current_focus:

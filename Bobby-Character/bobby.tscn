@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=2]
+[gd_scene load_steps=126 format=2]
 
 [ext_resource path="res://Bobby-Character/bobby.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_24.png" type="Texture" id=2]
@@ -287,9 +287,12 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "spawn_ball"
+}, {
 "args": [  ],
 "method": "On_shoot_End"
 } ]
@@ -323,6 +326,8 @@ animation = "shoot"
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
 [sub_resource type="AnimationNodeStateMachine" id=9]
 states/fall/node = SubResource( 22 )
 states/fall/position = Vector2( 263, 178 )
@@ -332,7 +337,7 @@ states/run/node = SubResource( 6 )
 states/run/position = Vector2( 299, 52 )
 states/shoot/node = SubResource( 7 )
 states/shoot/position = Vector2( 606, 62 )
-transitions = [ "run", "shoot", SubResource( 8 ), "shoot", "run", SubResource( 13 ), "shoot", "freeze", SubResource( 16 ), "run", "freeze", SubResource( 19 ), "run", "fall", SubResource( 23 ), "freeze", "fall", SubResource( 24 ), "fall", "run", SubResource( 25 ) ]
+transitions = [ "run", "shoot", SubResource( 8 ), "shoot", "run", SubResource( 13 ), "shoot", "freeze", SubResource( 16 ), "run", "freeze", SubResource( 19 ), "run", "fall", SubResource( 23 ), "freeze", "fall", SubResource( 24 ), "fall", "run", SubResource( 25 ), "freeze", "run", SubResource( 26 ) ]
 start_node = "run"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
@@ -360,6 +365,7 @@ height = 0.0
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 506, 269 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 1
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -373,16 +379,15 @@ anims/shoot = SubResource( 5 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 10 )
 
 [node name="Run" type="AnimatedSprite" parent="."]
+visible = false
 frames = SubResource( 11 )
-frame = 10
+frame = 12
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 6, 19 )
 frames = SubResource( 12 )
 frame = 50
@@ -391,3 +396,6 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2, 8 )
 shape = SubResource( 1 )
+
+[node name="SpawnBallPoint" type="Node2D" parent="."]
+position = Vector2( -14, 128 )

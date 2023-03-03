@@ -38,3 +38,4 @@ func _on_Area2D_body_entered(body):
 	elif  body.is_in_group("Ball") and !body.can_break_wall:
 		not_break_wall()
 		replace_player(body)
+		body.teleport_player()

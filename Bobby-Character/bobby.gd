@@ -4,7 +4,7 @@ onready var anim_tree  = $AnimationTree
 onready var anim_state = anim_tree.get("parameters/playback")
 
 var Flag = preload("res://Flag/flag.tscn")
-
+var Ball = preload("res://Ball/Ball.tscn")
 var flag_instance : KinematicBody2D
 
 var direction      : Vector2 = Vector2.ZERO
@@ -16,11 +16,14 @@ var freeze       : bool = false
 var is_falling   : bool = false
 var flag_dropped : bool = false
 var respawn_position
+var myCamera
+
 export var speed : float = 125.0
 export var acceleration: float = 500
 export var run_factor: float = 3
 
 func _ready():
+	
 	anim_tree.active = true
 	respawn_position = global_position
 	base_scale = scale
@@ -60,6 +63,7 @@ func _input(event):
 		#supprimer la liaison shoot->freeze dans le AnimationTree ne semble pas suffire, d'ou le freeze==false
 		if Input.is_action_pressed("ui_shoot") :
 			anim_state.travel("shoot")
+			
 			#print_debug("SHOOOOT",randi())
 		elif Input.is_action_pressed("ui_flag") and flag_dropped==false:
 			store_position=position
@@ -72,6 +76,17 @@ func _input(event):
 			store_position=Vector2.ZERO
 			flag_dropped=false
 			flag_instance.queue_free()
+
+#Add a Ball to the scene
+func spawn_ball():
+	assert(myCamera )
+	var ball_instance=Ball.instance()
+	ball_instance.global_position = $SpawnBallPoint.global_position
+	ball_instance.save_player = self
+	ball_instance.spawn_direction = ($SpawnBallPoint.global_position - global_position).normalized()
+	ball_instance.myCamera = myCamera
+	get_node("/root").add_child(ball_instance)
+	myCamera.change_focus(ball_instance)
 
 func start_falling(hole):
 	last_direction = direction
@@ -90,3 +105,7 @@ func respawn_player():
 func On_shoot_End():
 	freeze = true
 	anim_state.travel("freeze")
+	
+func On_Ball_Touch():
+	freeze = false
+	anim_state.travel("run")

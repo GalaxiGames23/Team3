@@ -118,7 +118,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "Not_Break_Wall_Anim"
-loop = true
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Particles2D:emitting")
@@ -202,6 +201,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="WallVert3212" type="Sprite" parent="."]
+position = Vector2( 0, -0.2 )
 texture = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
