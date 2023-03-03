@@ -22,7 +22,6 @@ func _physics_process(delta):
 	if (velocity != Vector2.ZERO):
 		var new_velocity = move_and_slide(velocity,Vector2.UP)
 		if (new_velocity != velocity):
-			print("bloqué")
 			velocity = new_velocity
 			speed = sqrt(velocity.x*velocity.x + velocity.y*velocity.y)
 			direction = velocity/speed
