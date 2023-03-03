@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Bobby-Character/bobby.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GroundTileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Wall/DestructibleWall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Camera/FollowCam.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,3 +28,6 @@ tile_data = PoolIntArray( -524316, 0, 0, -524315, 0, 0, -524314, 0, 0, -524313, 
 [node name="FollowCam" parent="." instance=ExtResource( 5 )]
 limit_left = -1200
 smoothing_enabled = true
+
+[node name="Ball" parent="." instance=ExtResource( 6 )]
+position = Vector2( -353, 59 )

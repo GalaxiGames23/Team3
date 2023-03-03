@@ -298,7 +298,7 @@ shape = SubResource( 1 )
 
 [node name="Run" type="AnimatedSprite" parent="."]
 frames = SubResource( 11 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
