@@ -227,4 +227,10 @@ anims/Break_Wall_Anim = SubResource( 3 )
 anims/Not_Break_Wall_Anim = SubResource( 9 )
 anims/RESET = SubResource( 10 )
 
+[node name="ReplacePositionPlayerTop" type="Node2D" parent="."]
+position = Vector2( 0, -40 )
+
+[node name="ReplacePositionPlayerBottom" type="Node2D" parent="."]
+position = Vector2( 0, 40 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

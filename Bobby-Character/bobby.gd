@@ -10,23 +10,34 @@ var flag_instance : KinematicBody2D
 var direction      : Vector2 = Vector2.ZERO
 var velocity       : Vector2 = Vector2.ZERO
 var store_position : Vector2 = Vector2.ZERO
-
+var base_scale: Vector2
+var last_direction: Vector2
 var freeze       : bool = false
+var is_falling   : bool = false
 var flag_dropped : bool = false
-
+var respawn_position
 export var speed : float = 125.0
+export var acceleration: float = 500
+export var run_factor: float = 3
 
 func _ready():
 	anim_tree.active = true
+	respawn_position = global_position
+	base_scale = scale
 
 func _physics_process(delta):
-	if freeze == false :
+	if freeze == false and !is_falling :
 		direction = get_input_velocity()
 		if (Input.is_action_pressed("ui_run")):
-			velocity = direction * 3 * speed
+			velocity = velocity.move_toward(direction * run_factor * speed, delta * acceleration*2.5) 
 		else:
-			velocity = direction * speed
-		move_and_slide(velocity,Vector2.UP)
+			velocity = velocity.move_toward(direction * speed, delta * acceleration) 
+		if velocity.length() > speed/3 :
+			_orientation(direction + 0.2 * velocity.move_toward(direction * speed,acceleration * delta * 5))
+		velocity = move_and_slide(velocity,Vector2.UP)
+	elif is_falling:
+		velocity = move_and_slide(velocity,Vector2.UP)
+		
 
 #oriente le joueur correctement
 func _orientation(dir):
@@ -40,8 +51,7 @@ func get_input_velocity() -> Vector2:
 	if (Input.is_action_pressed("ui_up") and !Input.is_action_pressed("ui_down")) or (!Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_down")) :
 		dir.y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
 	dir=dir.normalized()
-	if dir != Vector2.ZERO:
-		_orientation(dir)
+	
 	return dir
 
 #fonction pour l'input
@@ -62,6 +72,20 @@ func _input(event):
 			store_position=Vector2.ZERO
 			flag_dropped=false
 			flag_instance.queue_free()
+
+func start_falling(hole):
+	last_direction = direction
+	is_falling = true
+	velocity = Vector2.ZERO
+	velocity = (hole.global_position - global_position) 
+	anim_state.travel("fall")
+
+func respawn_player():
+	is_falling = false
+	freeze = false
+	scale = base_scale
+	_orientation(last_direction)
+	global_position = respawn_position
 
 func On_shoot_End():
 	freeze = true
