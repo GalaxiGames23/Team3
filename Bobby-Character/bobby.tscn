@@ -1,0 +1,309 @@
+[gd_scene load_steps=119 format=2]
+
+[ext_resource path="res://Bobby-Character/bobby.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_24.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_45.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_27.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_46.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_30.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_38.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_19.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_15.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_17.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_18.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_25.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_26.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_31.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_39.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_28.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_13.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_36.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_35.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_37.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_43.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_47.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_14.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_16.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_23.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_21.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_32.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_33.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_34.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_42.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_29.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_22.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_41.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_20.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_40.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_44.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_00.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_05.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_07.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_01.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_02.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_03.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_08.png" type="Texture" id=43]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_09.png" type="Texture" id=44]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_10.png" type="Texture" id=45]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_11.png" type="Texture" id=46]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_04.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_06.png" type="Texture" id=48]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_48.png" type="Texture" id=49]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_50.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_49.png" type="Texture" id=51]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_02.png" type="Texture" id=52]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_03.png" type="Texture" id=53]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_00.png" type="Texture" id=54]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_04.png" type="Texture" id=55]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_47.png" type="Texture" id=56]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_06.png" type="Texture" id=57]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_38.png" type="Texture" id=58]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_07.png" type="Texture" id=59]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_08.png" type="Texture" id=60]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_09.png" type="Texture" id=61]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_30.png" type="Texture" id=62]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_32.png" type="Texture" id=63]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_10.png" type="Texture" id=64]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_49.png" type="Texture" id=65]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_12.png" type="Texture" id=66]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_40.png" type="Texture" id=67]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_11.png" type="Texture" id=68]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_35.png" type="Texture" id=69]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_46.png" type="Texture" id=70]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_05.png" type="Texture" id=71]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_48.png" type="Texture" id=72]
+[ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_01.png" type="Texture" id=73]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_31.png" type="Texture" id=74]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_29.png" type="Texture" id=75]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_33.png" type="Texture" id=76]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_34.png" type="Texture" id=77]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_36.png" type="Texture" id=78]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_37.png" type="Texture" id=79]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_39.png" type="Texture" id=80]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_41.png" type="Texture" id=81]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_42.png" type="Texture" id=82]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_43.png" type="Texture" id=83]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_44.png" type="Texture" id=84]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_45.png" type="Texture" id=85]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_50.png" type="Texture" id=86]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_12.png" type="Texture" id=87]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_13.png" type="Texture" id=88]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_14.png" type="Texture" id=89]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_21.png" type="Texture" id=90]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_27.png" type="Texture" id=91]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_19.png" type="Texture" id=92]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_17.png" type="Texture" id=93]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_24.png" type="Texture" id=94]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_28.png" type="Texture" id=95]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_18.png" type="Texture" id=96]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_25.png" type="Texture" id=97]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_23.png" type="Texture" id=98]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_15.png" type="Texture" id=99]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_16.png" type="Texture" id=100]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_20.png" type="Texture" id=101]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_22.png" type="Texture" id=102]
+[ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_26.png" type="Texture" id=103]
+
+[sub_resource type="Animation" id=14]
+resource_name = "freeze"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Run:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "run"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Run:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Run:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shoot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "shoot"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shoot:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shoot:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shoot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Run:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "On_shoot_End"
+} ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "freeze"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "run"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachine" id=9]
+states/freeze/node = SubResource( 15 )
+states/freeze/position = Vector2( 434, 183 )
+states/run/node = SubResource( 6 )
+states/run/position = Vector2( 309, 55 )
+states/shoot/node = SubResource( 7 )
+states/shoot/position = Vector2( 606, 62 )
+transitions = [ "run", "shoot", SubResource( 8 ), "shoot", "run", SubResource( 13 ), "shoot", "freeze", SubResource( 16 ), "run", "freeze", SubResource( 19 ) ]
+start_node = "run"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 66.0
+height = 24.0
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 37 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 38 ), ExtResource( 48 ), ExtResource( 39 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 93 ), ExtResource( 96 ), ExtResource( 92 ), ExtResource( 101 ), ExtResource( 90 ), ExtResource( 102 ), ExtResource( 98 ), ExtResource( 94 ), ExtResource( 97 ), ExtResource( 103 ), ExtResource( 91 ), ExtResource( 95 ), ExtResource( 75 ), ExtResource( 62 ), ExtResource( 74 ), ExtResource( 63 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 69 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 58 ), ExtResource( 80 ), ExtResource( 67 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 70 ), ExtResource( 56 ), ExtResource( 72 ), ExtResource( 65 ), ExtResource( 86 ) ],
+"loop": true,
+"name": "default",
+"speed": 70.0
+} ]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 54 ), ExtResource( 73 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 55 ), ExtResource( 71 ), ExtResource( 57 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 64 ), ExtResource( 68 ), ExtResource( 66 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 9 ), ExtResource( 24 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 34 ), ExtResource( 26 ), ExtResource( 32 ), ExtResource( 25 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 31 ), ExtResource( 6 ), ExtResource( 14 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 7 ), ExtResource( 15 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 21 ), ExtResource( 36 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 22 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 50 ) ],
+"loop": false,
+"name": "default",
+"speed": 100.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
+position = Vector2( 506, 269 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/freeze = SubResource( 14 )
+anims/run = SubResource( 2 )
+anims/shoot = SubResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 9 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Run" type="AnimatedSprite" parent="."]
+frames = SubResource( 11 )
+frame = 1
+playing = true
+
+[node name="Shoot" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 6, 19 )
+frames = SubResource( 12 )
+frame = 50
+playing = true
