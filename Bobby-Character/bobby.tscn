@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://Bobby-Character/bobby.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_24.png" type="Texture" id=2]
@@ -287,7 +287,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.2, 0.3 ),
+"times": PoolRealArray( 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -362,6 +362,8 @@ animations = [ {
 radius = 52.0
 height = 0.0
 
+[sub_resource type="CapsuleShape2D" id=27]
+
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 506, 269 )
 scale = Vector2( 0.5, 0.5 )
@@ -384,7 +386,7 @@ parameters/playback = SubResource( 10 )
 [node name="Run" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 11 )
-frame = 12
+frame = 20
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
@@ -399,3 +401,14 @@ shape = SubResource( 1 )
 
 [node name="SpawnBallPoint" type="Node2D" parent="."]
 position = Vector2( -14, 128 )
+
+[node name="NoWallOnShoot" type="Area2D" parent="SpawnBallPoint"]
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBallPoint/NoWallOnShoot"]
+position = Vector2( 0, -2 )
+shape = SubResource( 27 )
+
+[connection signal="body_entered" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_entered"]
+[connection signal="body_exited" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_exited"]

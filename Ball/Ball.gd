@@ -36,6 +36,7 @@ func _physics_process(delta):
 func teleport_player():
 	save_player.global_position = global_position
 	save_player.On_Ball_Touch()
+	save_player._orientation(velocity)
 	myCamera.change_focus(save_player)
 	queue_free()
 

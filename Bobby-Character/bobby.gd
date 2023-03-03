@@ -17,6 +17,7 @@ var is_falling   : bool = false
 var flag_dropped : bool = false
 var respawn_position
 var myCamera
+var WallOnShoot : bool = false
 
 export var speed : float = 125.0
 export var acceleration: float = 500
@@ -39,6 +40,9 @@ func _physics_process(delta):
 			_orientation(direction + 0.2 * velocity.move_toward(direction * speed,acceleration * delta * 5))
 		velocity = move_and_slide(velocity,Vector2.UP)
 	elif is_falling:
+		velocity = move_and_slide(velocity,Vector2.UP)
+	elif freeze:
+		velocity = velocity.move_toward(Vector2.ZERO, delta * acceleration) 
 		velocity = move_and_slide(velocity,Vector2.UP)
 		
 
@@ -79,14 +83,19 @@ func _input(event):
 
 #Add a Ball to the scene
 func spawn_ball():
-	assert(myCamera )
-	var ball_instance=Ball.instance()
-	ball_instance.global_position = $SpawnBallPoint.global_position
-	ball_instance.save_player = self
-	ball_instance.spawn_direction = ($SpawnBallPoint.global_position - global_position).normalized()
-	ball_instance.myCamera = myCamera
-	get_node("/root").add_child(ball_instance)
-	myCamera.change_focus(ball_instance)
+	assert(myCamera)
+	if (!WallOnShoot):
+		var ball_instance=Ball.instance()
+		ball_instance.global_position = $SpawnBallPoint.global_position
+		ball_instance.save_player = self
+		ball_instance.spawn_direction = ($SpawnBallPoint.global_position - global_position).normalized()
+		ball_instance.myCamera = myCamera
+		get_node("/root").add_child(ball_instance)
+		myCamera.change_focus(ball_instance)
+		freeze = true
+	
+		
+		
 
 func start_falling(hole):
 	last_direction = direction
@@ -103,9 +112,19 @@ func respawn_player():
 	global_position = respawn_position
 
 func On_shoot_End():
-	freeze = true
-	anim_state.travel("freeze")
+	if (freeze):
+		anim_state.travel("freeze")
+	else:
+		anim_state.travel("run")
 	
 func On_Ball_Touch():
 	freeze = false
 	anim_state.travel("run")
+
+
+func _on_NoWallOnShoot_body_entered(body):
+	WallOnShoot = true
+
+
+func _on_NoWallOnShoot_body_exited(body):
+	WallOnShoot = false
