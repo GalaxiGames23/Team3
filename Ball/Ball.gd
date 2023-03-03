@@ -12,7 +12,7 @@ var myCamera
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	direction = spawn_direction
 
 
 
@@ -27,8 +27,8 @@ func _physics_process(delta):
 		var new_velocity = move_and_slide(velocity,Vector2.UP)
 		if (new_velocity != velocity):
 			velocity = new_velocity
-			speed = sqrt(velocity.x*velocity.x + velocity.y*velocity.y)
-			direction = velocity/speed
+			speed = velocity.length()
+			direction = velocity.normalized()
 		if (get_slide_count()):
 			teleport_player()
 			
@@ -38,6 +38,7 @@ func teleport_player():
 	save_player.On_Ball_Touch()
 	myCamera.change_focus(save_player)
 	queue_free()
+
 """
 Récupère l'input du joueur et fait tendre la direction de la balle vers la direction 
 donnée par le joueur (rapproche de 10% par tick).
@@ -54,8 +55,5 @@ func get_direction() -> Vector2:
 		ret_dir = Vector2(direction.x+1, direction.y)
 	else:
 		ret_dir = (direction*9 + input_dir)/10
-	if ((ret_dir.x*ret_dir.x + ret_dir.y*ret_dir.y) == 0):
-		return Vector2.ZERO
-	else:
-		return ret_dir/sqrt(ret_dir.x*ret_dir.x + ret_dir.y*ret_dir.y)
+	return ret_dir.normalized()
 	
