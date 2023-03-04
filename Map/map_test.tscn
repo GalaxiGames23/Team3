@@ -18,8 +18,11 @@ tile_data = PoolIntArray( -65541, 1, 0, -65540, 1, 0, -65539, 1, 0, -65538, 1, 0
 position = Vector2( 30, 271 )
 scale = Vector2( 2, 2 )
 
+[node name="Hole2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -133, -128 )
+
 [node name="DestructibleWall" parent="." instance=ExtResource( 4 )]
-position = Vector2( 192, 72 )
+position = Vector2( 192, 69 )
 rotation = 1.5708
 scale = Vector2( 1.2, 1.2 )
 

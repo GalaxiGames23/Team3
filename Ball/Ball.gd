@@ -19,6 +19,7 @@ func _ready():
 func _physics_process(delta):
 	if ((not can_break_wall) and (speed >= speed_to_break_wall)):
 		can_break_wall = true
+		$AnimationPlayer.play("CanBreakSpeedAnim")
 	if (direction != Vector2.ZERO):
 		speed += 1
 	direction = get_direction()
@@ -29,8 +30,15 @@ func _physics_process(delta):
 			velocity = new_velocity
 			speed = velocity.length()
 			direction = velocity.normalized()
-		if (get_slide_count()):
-			teleport_player()
+		var obstacle_array = get_slide_count()
+		if (obstacle_array):
+			if (get_slide_collision(0).collider.is_in_group("Player")):
+				save_player.respawn_player()
+				myCamera.change_focus(save_player)
+				queue_free()
+				
+			else:
+				teleport_player()
 			
 		
 func teleport_player():
