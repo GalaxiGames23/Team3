@@ -18,6 +18,7 @@ var flag_dropped : bool = false
 var respawn_position
 var myCamera
 var WallOnShoot : bool = false
+var ball_instance
 
 export var speed : float = 125.0
 export var acceleration: float = 500
@@ -83,7 +84,7 @@ func _input(event):
 func spawn_ball():
 	assert(myCamera)
 	if (!WallOnShoot):
-		var ball_instance=Ball.instance()
+		ball_instance=Ball.instance()
 		ball_instance.global_position = $SpawnBallPoint.global_position
 		ball_instance.save_player = self
 		ball_instance.spawn_direction = ($SpawnBallPoint.global_position - global_position).normalized()
@@ -99,8 +100,11 @@ func start_falling(hole):
 	last_direction = direction
 	is_falling = true
 	velocity = Vector2.ZERO
-	velocity = (hole.global_position - global_position) 
+	velocity = (hole.global_position - global_position)
 	anim_state.travel("fall")
+	if (is_instance_valid(ball_instance)):
+		ball_instance.queue_free()
+		myCamera.change_focus(self)
 
 #Respawn player to last checkpoint
 func respawn_player():
