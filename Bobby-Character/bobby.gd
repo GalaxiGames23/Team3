@@ -67,8 +67,6 @@ func _input(event):
 		#supprimer la liaison shoot->freeze dans le AnimationTree ne semble pas suffire, d'ou le freeze==false
 		if Input.is_action_pressed("ui_shoot") :
 			anim_state.travel("shoot")
-			
-			#print_debug("SHOOOOT",randi())
 		elif Input.is_action_pressed("ui_flag") and flag_dropped==false:
 			store_position=position
 			flag_dropped=true
@@ -81,7 +79,7 @@ func _input(event):
 			flag_dropped=false
 			flag_instance.queue_free()
 
-#Add a Ball to the scene
+#Add a Ball to the scene, change the camera to the ball
 func spawn_ball():
 	assert(myCamera)
 	if (!WallOnShoot):
@@ -96,7 +94,7 @@ func spawn_ball():
 	
 		
 		
-
+#Player Start falling
 func start_falling(hole):
 	last_direction = direction
 	is_falling = true
@@ -104,6 +102,7 @@ func start_falling(hole):
 	velocity = (hole.global_position - global_position) 
 	anim_state.travel("fall")
 
+#Respawn player to last checkpoint
 func respawn_player():
 	is_falling = false
 	freeze = false
@@ -111,20 +110,22 @@ func respawn_player():
 	_orientation(last_direction)
 	global_position = respawn_position
 
+#Shoot Mode End
 func On_shoot_End():
 	if (freeze):
 		anim_state.travel("freeze")
 	else:
 		anim_state.travel("run")
-	
+
+#The ball touch anything, state = run
 func On_Ball_Touch():
 	freeze = false
 	anim_state.travel("run")
 
-
+#There is a Wall in Zone, can't spawn ball without bug
 func _on_NoWallOnShoot_body_entered(body):
 	WallOnShoot = true
 
-
+#No Wall in Zone, can spawn ball without bug
 func _on_NoWallOnShoot_body_exited(body):
 	WallOnShoot = false

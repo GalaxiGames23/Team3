@@ -45,7 +45,8 @@ func _physics_process(delta):
 			else:
 				teleport_player()
 			
-		
+
+#Teleport the player to the ball position
 func teleport_player():
 	save_player.global_position = global_position
 	save_player.On_Ball_Touch()

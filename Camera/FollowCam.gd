@@ -16,6 +16,6 @@ func _physics_process(delta):
 	if current_focus:
 		position = current_focus.position
 
-
+#Change the target of the camera (between player and ball)
 func change_focus(new_focus):
 	current_focus = new_focus

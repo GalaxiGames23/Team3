@@ -1,0 +1,15 @@
+Mecanique présente dans le jeu:
+
+- Un joueur pouvant se déplacer dans son monde avec ZQSD, peut courir avec SHIFT enfoncé.
+- Le joueur peut prendre des checkpoints dispersés dans le level
+- Le joueur peut tomber dans des trous, le faisant respawn au dernier checkpoint ou à la position initial du joueur
+- Le joueur peut tirer en cliquant ou en appuyant sur SPACE, passant en gamplay Ball
+- La balle se déplacer dans le monde avec ZQSD, elle se déplace plus difficilement que le joueur, et accélère petit à petit, sans limite (OMG)
+- A partir d'une certaine vitesse, la ball peut casser des murs destructibles, ce changement est indiqué par un effet visuel (trainée)
+- Lorsqu'une ball touche un mur quelconque ou un mur destructible sans assez de vitesse, le gameplay repasse au joueur, en téléportant le joueur à l'endroit de la collision
+
+
+Bon Fonctionnement du jeu:
+
+- Un niveau doit au minimum avoir le noeud MyCam, ainsi que le joueur. Un niveau de test est disponible pour voir comment agencer les autres éléments (c'est simple)
+- Convention Layer: 1 World, 2 Player, 3 Ball, 4 Destructive Wall
