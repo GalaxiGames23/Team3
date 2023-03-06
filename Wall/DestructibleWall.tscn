@@ -13,13 +13,13 @@ extents = Vector2( 64, 16 )
 [sub_resource type="Gradient" id=5]
 colors = PoolColorArray( 0.546, 0.435846, 0.345516, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=6]
+[sub_resource type="GradientTexture" id=11]
 gradient = SubResource( 5 )
 
 [sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
+[sub_resource type="CurveTexture" id=12]
 curve = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=4]
@@ -34,8 +34,8 @@ initial_velocity = 108.91
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.2
-scale_curve = SubResource( 8 )
-color_ramp = SubResource( 6 )
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 11 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Break_Wall_Anim"

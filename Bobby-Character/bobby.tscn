@@ -362,6 +362,7 @@ radius = 52.0
 height = 0.0
 
 [sub_resource type="CapsuleShape2D" id=27]
+radius = 38.0
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 506, 269 )
@@ -385,7 +386,7 @@ parameters/playback = SubResource( 10 )
 [node name="Run" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 11 )
-frame = 8
+frame = 38
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]

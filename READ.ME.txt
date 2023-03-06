@@ -2,11 +2,12 @@ Mecanique présente dans le jeu:
 
 - Un joueur pouvant se déplacer dans son monde avec ZQSD, peut courir avec SHIFT enfoncé.
 - Le joueur peut prendre des checkpoints dispersés dans le level
-- Le joueur peut tomber dans des trous, le faisant respawn au dernier checkpoint ou à la position initial du joueur
-- Le joueur peut tirer en cliquant ou en appuyant sur SPACE, passant en gamplay Ball
+- Le joueur peut faire spawn un point de téléportation avec E. Pour se téléporter au point posé, il faut appuyer sur R.
+- Le joueur peut tomber dans des trous, le faisant respawn au dernier checkpoint ou à la position initial du joueur. Un point de téléportation ne fait pas respawn le joueur s'il tombe dans un trou.
+- Le joueur peut tirer en cliquant ou en appuyant sur SPACE, passant en gameplay Ball
 - La balle se déplacer dans le monde avec ZQSD, elle se déplace plus difficilement que le joueur, et accélère petit à petit, sans limite (OMG)
 - A partir d'une certaine vitesse, la ball peut casser des murs destructibles, ce changement est indiqué par un effet visuel (trainée)
-- Lorsqu'une ball touche un mur quelconque ou un mur destructible sans assez de vitesse, le gameplay repasse au joueur, en téléportant le joueur à l'endroit de la collision
+- Lorsqu'une ball touche un mur quelconque ou un mur destructible, le gameplay repasse au joueur, en téléportant le joueur à l'endroit de la collision
 
 
 Bon Fonctionnement du jeu:
