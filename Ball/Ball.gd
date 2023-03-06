@@ -5,6 +5,8 @@ export var speed = 100
 export var speed_to_break_wall = 400
 export var velocity = Vector2.ZERO
 export var direction = Vector2.ZERO
+export var last_position = Vector2.ZERO
+
 export var can_break_wall = false
 var spawn_direction
 var save_player
@@ -25,7 +27,10 @@ func _physics_process(delta):
 	direction = get_direction()
 	velocity = direction * speed
 	if (velocity != Vector2.ZERO):
+		last_position = global_position
 		var new_velocity = move_and_slide(velocity,Vector2.UP)
+		print(global_position, last_position)
+		$CPUParticles2D2.global_position = (global_position + last_position) / 2
 		if (new_velocity != velocity):
 			velocity = new_velocity
 			speed = velocity.length()
