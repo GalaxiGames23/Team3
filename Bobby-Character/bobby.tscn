@@ -231,7 +231,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "shoot"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Shoot:playing")
 tracks/0/interp = 1
@@ -386,11 +385,10 @@ parameters/playback = SubResource( 10 )
 [node name="Run" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 11 )
-frame = 20
+frame = 8
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
-position = Vector2( 6, 19 )
 frames = SubResource( 12 )
 frame = 50
 playing = true

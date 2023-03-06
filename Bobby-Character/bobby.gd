@@ -71,7 +71,7 @@ func _input(event):
 			store_position=position
 			flag_dropped=true
 			flag_instance=Flag.instance()
-			flag_instance.position=position+Vector2(100,100)
+			flag_instance.position=position+Vector2(10,10)
 			get_node("/root").add_child(flag_instance)
 		elif Input.is_action_pressed("ui_tp") and flag_dropped==true :
 			position=store_position
