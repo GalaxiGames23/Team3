@@ -1,8 +1,8 @@
-Mecanique présente dans le jeu:
+Mecaniques présentent dans le jeu:
 
 - Un joueur pouvant se déplacer dans son monde avec ZQSD, peut courir avec SHIFT enfoncé.
 - Le joueur peut prendre des checkpoints dispersés dans le level
-- Le joueur peut faire spawn un point de téléportation avec E. Pour se téléporter au point posé, il faut appuyer sur R.
+- Le joueur peut faire spawn un point de téléportation avec E. Pour se téléporter au point posé, il peut appuyer sur R.
 - Le joueur peut tomber dans des trous, le faisant respawn au dernier checkpoint ou à la position initial du joueur. Un point de téléportation ne fait pas respawn le joueur s'il tombe dans un trou.
 - Le joueur peut tirer en cliquant ou en appuyant sur SPACE, passant en gameplay Ball
 - La balle se déplacer dans le monde avec ZQSD, elle se déplace plus difficilement que le joueur, et accélère petit à petit, sans limite (OMG)
@@ -14,3 +14,4 @@ Bon Fonctionnement du jeu:
 
 - Un niveau doit au minimum avoir le noeud MyCam, ainsi que le joueur. Un niveau de test est disponible pour voir comment agencer les autres éléments (c'est simple)
 - Convention Layer: 1 World, 2 Player, 3 Ball, 4 Destructive Wall
+- Les objects avec le groupe "InterractibleObject" se reset à la mort du perso, il faut donc qu'il implémente une méthode reset_objet()

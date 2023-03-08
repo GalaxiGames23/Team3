@@ -113,8 +113,16 @@ func respawn_player():
 	scale = base_scale
 	_orientation(last_direction)
 	global_position = respawn_position
+	reset_all_interactible_object()
+	if (flag_dropped):
+		flag_dropped=false
+		flag_instance.queue_free()
 
-#Shoot Mode End
+func reset_all_interactible_object():
+	var objects = get_tree().get_nodes_in_group("InterractibleObject")
+	for obj in objects:
+		obj.reset_objet()
+#SMode End
 func On_shoot_End():
 	if (freeze):
 		anim_state.travel("freeze")

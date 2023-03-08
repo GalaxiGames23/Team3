@@ -8,14 +8,22 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	reset_objet()
+	
+
+func reset_objet():
 	$Area2D/CollisionShape2D.disabled = false
 	$CollisionShape2D.disabled = false
 	$WallVert3212.visible = true
 	$Particles2D.emitting= false
+	$ParticleBottom.emitting = false
+	$ParticleTop.emitting = false
+	$WallVert3212.position = Vector2.ZERO
 
 #Function to call when the wall will be destroy
-func break_wall():
+func break_wall(body):
 	$AnimationPlayer.play("Break_Wall_Anim")
+	emmit_particles(body)
 	
 #Function to call when the wall remain untouched
 func not_break_wall():
@@ -34,8 +42,23 @@ func replace_player(player: KinematicBody2D):
 #When the ball enter in the area, if enough speed, destroy the wall
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Ball") and body.can_break_wall:
-		break_wall()
+		break_wall(body)
 	elif  body.is_in_group("Ball") and !body.can_break_wall:
 		not_break_wall()
-	replace_player(body)
-	body.teleport_player()
+		replace_player(body)
+		body.teleport_player()
+
+
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("Ball"):
+		emmit_particles(body)
+
+func emmit_particles(body):
+	var disttop = body.global_position.distance_to($ReplacePositionPlayerTop.global_position)
+	var distbot = body.global_position.distance_to($ReplacePositionPlayerBottom.global_position)
+	if (distbot < disttop):
+		$ParticleBottom.global_position = body.global_position
+		$ParticleBottom.emitting = true
+	else:
+		$ParticleTop.global_position = body.global_position
+		$ParticleTop.emitting = true

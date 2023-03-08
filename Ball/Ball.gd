@@ -29,7 +29,6 @@ func _physics_process(delta):
 	if (velocity != Vector2.ZERO):
 		last_position = global_position
 		var new_velocity = move_and_slide(velocity,Vector2.UP)
-		print(global_position, last_position)
 		$CPUParticles2D2.global_position = (global_position + last_position) / 2
 		if (new_velocity != velocity):
 			velocity = new_velocity
@@ -64,7 +63,6 @@ func get_direction() -> Vector2:
 	input_dir.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
 	input_dir.y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
 	if (direction == Vector2.ZERO):
-		#print(input_dir)
 		ret_dir = input_dir
 	elif (direction.angle() == input_dir.angle() + PI):
 		ret_dir = Vector2(direction.x+1, direction.y)

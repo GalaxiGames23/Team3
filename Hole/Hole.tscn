@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/BlocksWallsObstacles/BlocksAndWalls/button_01.png" type="Texture" id=1]
 [ext_resource path="res://Hole/Hole.gd" type="Script" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 45.5, 45 )
 
 [node name="Hole" type="Node2D"]
 script = ExtResource( 2 )
@@ -16,7 +13,7 @@ texture = ExtResource( 1 )
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -60, -39, -51, -53, -36, -60, 38, -60, 53, -53, 61, -39, 62, 38, 53, 53, 39, 61, -40, 60, -54, 51, -61, 34 )
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
