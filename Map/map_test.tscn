@@ -127,6 +127,12 @@ position = Vector2( 1390, 76 )
 rotation = 1.5708
 scale = Vector2( 1.2, 1.2 )
 
+[node name="DestructibleWall2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1513, 264 )
+rotation = 1.5708
+scale = Vector2( 1.2, 1.2 )
+hard = false
+
 [node name="trap" parent="." instance=ExtResource( 8 )]
 position = Vector2( -1981, 138 )
 scale = Vector2( 1.2, 1.2 )

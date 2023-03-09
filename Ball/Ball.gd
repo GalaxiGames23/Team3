@@ -2,12 +2,13 @@ extends KinematicBody2D
 
 
 export var speed = 100
-export var speed_to_break_wall = 400
+export var speed_to_break_wall_hard = 350
 export var velocity = Vector2.ZERO
 export var direction = Vector2.ZERO
 export var last_position = Vector2.ZERO
 
-export var can_break_wall = false
+export var can_break_wall_hard = false
+export var can_break_wall_soft = true
 var spawn_direction
 var save_player
 var myCamera
@@ -19,8 +20,9 @@ func _ready():
 
 
 func _physics_process(delta):
-	if ((not can_break_wall) and (speed >= speed_to_break_wall)):
-		can_break_wall = true
+	if ((not can_break_wall_hard) and (speed >= speed_to_break_wall_hard)):
+		can_break_wall_hard = true
+		can_break_wall_soft = false
 		$AnimationPlayer.play("CanBreakSpeedAnim")
 	if (direction != Vector2.ZERO):
 		speed += 1

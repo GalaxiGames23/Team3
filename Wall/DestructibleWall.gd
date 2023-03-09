@@ -5,7 +5,7 @@ extends StaticBody2D
 # var a = 2
 # var b = "text"
 
-
+export var hard : bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset_objet()
@@ -19,6 +19,10 @@ func reset_objet():
 	$ParticleBottom.emitting = false
 	$ParticleTop.emitting = false
 	$WallVert3212.position = Vector2.ZERO
+	if hard:
+		$WallVert3212.modulate = Color(1, 1, 1, 1)
+	else:
+		$WallVert3212.modulate = Color(0, 0, 1)
 
 #Function to call when the wall will be destroy
 func break_wall(body):
@@ -41,9 +45,9 @@ func replace_player(player: KinematicBody2D):
 
 #When the ball enter in the area, if enough speed, destroy the wall
 func _on_Area2D_body_entered(body):
-	if body.is_in_group("Ball") and body.can_break_wall:
+	if body.is_in_group("Ball") and ((body.can_break_wall_hard and hard) or (body.can_break_wall_soft and !hard)) :
 		break_wall(body)
-	elif  body.is_in_group("Ball") and !body.can_break_wall:
+	elif  body.is_in_group("Ball") and ((!body.can_break_wall_hard and hard) or (!body.can_break_wall_soft and !hard)) :
 		not_break_wall()
 		replace_player(body)
 		body.teleport_player()
