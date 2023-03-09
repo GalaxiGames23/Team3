@@ -9,6 +9,7 @@ var flag_instance : KinematicBody2D
 
 var direction      : Vector2 = Vector2.ZERO
 var velocity       : Vector2 = Vector2.ZERO
+var last_velocity  : Vector2
 var store_position : Vector2 = Vector2.ZERO
 var base_scale: Vector2
 var last_direction: Vector2
@@ -31,7 +32,9 @@ func _ready():
 	base_scale = scale
 
 func _physics_process(delta):
-	if freeze == false and !is_falling :
+	
+	if !freeze and !is_falling :
+		last_velocity = velocity
 		direction = get_input_velocity()
 		if (Input.is_action_pressed("ui_run")):
 			velocity = velocity.move_toward(direction * run_factor * speed, delta * acceleration*2.5) 
@@ -40,11 +43,14 @@ func _physics_process(delta):
 		if velocity.length() > speed/3 :
 			_orientation(direction + 0.2 * velocity.move_toward(direction * speed,acceleration * delta * 5))
 		velocity = move_and_slide(velocity,Vector2.UP)
+		if (get_slide_count() and get_slide_collision(0).collider.name == "HoleMap"):
+			start_falling(get_slide_collision(0).collider)
 	elif is_falling:
-		velocity = move_and_slide(velocity,Vector2.UP)
-	elif freeze:
-		velocity = velocity.move_toward(Vector2.ZERO, delta * acceleration) 
-		velocity = move_and_slide(velocity,Vector2.UP)
+		move_and_slide(last_velocity)
+		print(last_velocity)
+		last_velocity = last_velocity*(0.7+0.3*last_velocity.length()/(abs(last_velocity[0])+abs(last_velocity[1])))*0.98
+
+	
 		
 
 #oriente le joueur correctement
@@ -92,6 +98,7 @@ func spawn_ball():
 		get_node("/root").add_child(ball_instance)
 		myCamera.change_focus(ball_instance)
 		freeze = true
+		velocity = Vector2.ZERO
 	
 		
 		
@@ -99,8 +106,8 @@ func spawn_ball():
 func start_falling(hole):
 	last_direction = direction
 	is_falling = true
-	velocity = Vector2.ZERO
-	velocity = (hole.global_position - global_position)
+	set_collision_mask_bit(4,0)
+	move_and_slide(last_velocity)
 	anim_state.travel("fall")
 	if (is_instance_valid(ball_instance)):
 		ball_instance.queue_free()
