@@ -47,7 +47,6 @@ func _physics_process(delta):
 			start_falling(get_slide_collision(0).collider)
 	elif is_falling:
 		move_and_slide(last_velocity)
-		print(last_velocity)
 		last_velocity = last_velocity*(0.7+0.3*last_velocity.length()/(abs(last_velocity[0])+abs(last_velocity[1])))*0.98
 
 	

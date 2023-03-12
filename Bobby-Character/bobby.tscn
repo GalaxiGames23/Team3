@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=2]
+[gd_scene load_steps=129 format=2]
 
 [ext_resource path="res://Bobby-Character/bobby.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_24.png" type="Texture" id=2]
@@ -367,6 +367,9 @@ radius = 38.0
 [sub_resource type="CircleShape2D" id=28]
 radius = 26.3059
 
+[sub_resource type="OccluderPolygon2D" id=29]
+polygon = PoolVector2Array( -52, -4, -2, -42, 42, -16, 40, 34, -2, 58, -38, 42 )
+
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 506, 269 )
 scale = Vector2( 0.5, 0.5 )
@@ -389,7 +392,7 @@ parameters/playback = SubResource( 10 )
 [node name="Run" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 11 )
-frame = 35
+frame = 7
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
@@ -420,6 +423,11 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallingZone"]
 position = Vector2( -12, 16 )
 shape = SubResource( 28 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 0
+occluder = SubResource( 29 )
+light_mask = 0
 
 [connection signal="body_entered" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_entered"]
 [connection signal="body_exited" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_exited"]

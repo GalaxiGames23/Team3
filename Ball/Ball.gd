@@ -32,18 +32,30 @@ func _physics_process(delta):
 		last_position = global_position
 		var new_velocity = move_and_slide(velocity,Vector2.UP)
 		$CPUParticles2D2.global_position = (global_position + last_position) / 2
-		if (new_velocity != velocity):
-			velocity = new_velocity
-			speed = velocity.length()
-			direction = velocity.normalized()
+		#if (new_velocity != velocity): #Je sais pas ce que ça faisait mais ça marche sans
+		#	velocity = new_velocity
+		#	speed = velocity.length()
+		#	direction = velocity.normalized()
 		var obstacle_array = get_slide_count()
 		if (obstacle_array):
 			if (get_slide_collision(0).collider.is_in_group("Player")):
 				save_player.respawn_player()
 				myCamera.change_focus(save_player)
 				queue_free()
-				
+			elif (get_slide_collision(0).collider.name == "WallThatBreakTheBall"):
+				print("zz")
+				myCamera.change_focus(save_player)
+				save_player.freeze = false
+				queue_free()
+			elif (get_slide_collision(0).collider.name == "WallThatBounce"):
+				if(is_on_wall()):
+					direction.x = -1*direction.x
+					velocity.x = -1*velocity.x
+				if(is_on_floor() or is_on_ceiling()):
+					direction.y = -1*direction.y
+					velocity.y = -1*velocity.y
 			else:
+				print(get_slide_collision(0).collider.name== "WallThatBreakTheBall")
 				teleport_player()
 			
 
