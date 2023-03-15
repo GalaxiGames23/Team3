@@ -389,7 +389,7 @@ parameters/playback = SubResource( 10 )
 [node name="Run" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 11 )
-frame = 35
+frame = 11
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
