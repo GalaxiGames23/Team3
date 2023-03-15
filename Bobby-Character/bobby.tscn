@@ -104,7 +104,7 @@
 [ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_22.png" type="Texture" id=102]
 [ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_26.png" type="Texture" id=103]
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -131,7 +131,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=2]
 resource_name = "fall"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -172,7 +172,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=3]
 resource_name = "freeze"
 loop = true
 tracks/0/type = "value"
@@ -188,8 +188,7 @@ tracks/0/keys = {
 "values": [ 7 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "run"
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Run:playing")
@@ -297,51 +296,51 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "fall"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "freeze"
 
-[sub_resource type="AnimationNodeAnimation" id=6]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "run"
 
-[sub_resource type="AnimationNodeAnimation" id=7]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "shoot"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
-[sub_resource type="AnimationNodeStateMachine" id=9]
-states/fall/node = SubResource( 22 )
+[sub_resource type="AnimationNodeStateMachine" id=18]
+states/fall/node = SubResource( 6 )
 states/fall/position = Vector2( 263, 178 )
-states/freeze/node = SubResource( 15 )
+states/freeze/node = SubResource( 7 )
 states/freeze/position = Vector2( 434, 183 )
-states/run/node = SubResource( 6 )
+states/run/node = SubResource( 8 )
 states/run/position = Vector2( 299, 52 )
-states/shoot/node = SubResource( 7 )
+states/shoot/node = SubResource( 9 )
 states/shoot/position = Vector2( 606, 62 )
-transitions = [ "run", "shoot", SubResource( 8 ), "shoot", "run", SubResource( 13 ), "shoot", "freeze", SubResource( 16 ), "run", "freeze", SubResource( 19 ), "run", "fall", SubResource( 23 ), "freeze", "fall", SubResource( 24 ), "fall", "run", SubResource( 25 ), "freeze", "run", SubResource( 26 ) ]
+transitions = [ "run", "shoot", SubResource( 10 ), "shoot", "run", SubResource( 11 ), "shoot", "freeze", SubResource( 12 ), "run", "freeze", SubResource( 13 ), "run", "fall", SubResource( 14 ), "freeze", "fall", SubResource( 15 ), "fall", "run", SubResource( 16 ), "freeze", "run", SubResource( 17 ) ]
 start_node = "run"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=20]
 animations = [ {
 "frames": [ ExtResource( 37 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 38 ), ExtResource( 48 ), ExtResource( 39 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 93 ), ExtResource( 96 ), ExtResource( 92 ), ExtResource( 101 ), ExtResource( 90 ), ExtResource( 102 ), ExtResource( 98 ), ExtResource( 94 ), ExtResource( 97 ), ExtResource( 103 ), ExtResource( 91 ), ExtResource( 95 ), ExtResource( 75 ), ExtResource( 62 ), ExtResource( 74 ), ExtResource( 63 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 69 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 58 ), ExtResource( 80 ), ExtResource( 67 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 70 ), ExtResource( 56 ), ExtResource( 72 ), ExtResource( 65 ), ExtResource( 86 ) ],
 "loop": true,
@@ -349,7 +348,7 @@ animations = [ {
 "speed": 70.0
 } ]
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=21]
 animations = [ {
 "frames": [ ExtResource( 54 ), ExtResource( 73 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 55 ), ExtResource( 71 ), ExtResource( 57 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 64 ), ExtResource( 68 ), ExtResource( 66 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 9 ), ExtResource( 24 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 34 ), ExtResource( 26 ), ExtResource( 32 ), ExtResource( 25 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 31 ), ExtResource( 6 ), ExtResource( 14 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 7 ), ExtResource( 15 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 21 ), ExtResource( 36 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 22 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 50 ) ],
 "loop": false,
@@ -357,20 +356,22 @@ animations = [ {
 "speed": 100.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=22]
 radius = 52.0
 height = 0.0
 
-[sub_resource type="CapsuleShape2D" id=27]
+[sub_resource type="CapsuleShape2D" id=23]
 radius = 38.0
 
-[sub_resource type="CircleShape2D" id=28]
+[sub_resource type="CircleShape2D" id=24]
 radius = 26.3059
 
-[sub_resource type="OccluderPolygon2D" id=29]
+[sub_resource type="OccluderPolygon2D" id=25]
 polygon = PoolVector2Array( -52, -4, -2, -42, 42, -16, 40, 34, -2, 58, -38, 42 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"Player",
+]]
 position = Vector2( 506, 269 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 1
@@ -378,31 +379,31 @@ collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 20 )
-anims/fall = SubResource( 21 )
-anims/freeze = SubResource( 14 )
-anims/run = SubResource( 2 )
+anims/RESET = SubResource( 1 )
+anims/fall = SubResource( 2 )
+anims/freeze = SubResource( 3 )
+anims/run = SubResource( 4 )
 anims/shoot = SubResource( 5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 9 )
+tree_root = SubResource( 18 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 10 )
+parameters/playback = SubResource( 19 )
 
 [node name="Run" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 11 )
-frame = 11
+frames = SubResource( 20 )
+frame = 18
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
-frames = SubResource( 12 )
+frames = SubResource( 21 )
 frame = 50
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2, 8 )
-shape = SubResource( 1 )
+shape = SubResource( 22 )
 
 [node name="SpawnBallPoint" type="Node2D" parent="."]
 position = Vector2( -14, 128 )
@@ -413,7 +414,7 @@ collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBallPoint/NoWallOnShoot"]
 position = Vector2( 0, -2 )
-shape = SubResource( 27 )
+shape = SubResource( 23 )
 
 [node name="FallingZone" type="Area2D" parent="."]
 position = Vector2( 12, -16 )
@@ -422,12 +423,11 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallingZone"]
 position = Vector2( -12, 16 )
-shape = SubResource( 28 )
+shape = SubResource( 24 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 light_mask = 0
-occluder = SubResource( 29 )
+occluder = SubResource( 25 )
 light_mask = 0
-
 [connection signal="body_entered" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_entered"]
 [connection signal="body_exited" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_exited"]
