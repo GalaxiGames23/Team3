@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -19,4 +19,5 @@ func _physics_process(delta):
 	if rayCast.get_collider() == KinematicBody2D :
 		print("wololo") 
 		pass
-	beam.region_rect.end.x = end.position.length()
+	beam.scale.x = end.position.length()/64
+	rotate(0.01)
