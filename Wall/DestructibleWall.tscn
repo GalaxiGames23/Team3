@@ -12,7 +12,7 @@
 [ext_resource path="res://Assets/MarieMade/Doors/door_broken2.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 62.5, 6 )
+extents = Vector2( 62.5, 9.5 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 16 )
@@ -243,6 +243,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("ParticleTop:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ParticleBottom:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -311,6 +335,7 @@ tracks/4/keys = {
 colors = PoolColorArray( 1, 0.539063, 0, 1, 1, 1, 1, 0 )
 
 [node name="DestructibleWall" type="StaticBody2D" groups=["InterractibleObject", "Wall"]]
+z_index = 2
 collision_layer = 8
 collision_mask = 2
 script = ExtResource( 2 )
@@ -379,11 +404,11 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 0.5 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
 modulate = Color( 0.407843, 0.32549, 0.266667, 0.231373 )
@@ -405,6 +430,7 @@ position = Vector2( 0, -40 )
 position = Vector2( 0, 40 )
 
 [node name="ParticleTop" type="CPUParticles2D" parent="."]
+z_index = -2
 emitting = false
 amount = 65
 lifetime = 5.0
@@ -425,6 +451,7 @@ color = Color( 0.380392, 0.227451, 0.129412, 1 )
 color_ramp = SubResource( 13 )
 
 [node name="ParticleBottom" type="CPUParticles2D" parent="."]
+z_index = -2
 emitting = false
 amount = 65
 lifetime = 5.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=142 format=2]
 
 [ext_resource path="res://Bobby-Character/bobby.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_24.png" type="Texture" id=2]
@@ -103,23 +103,29 @@
 [ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_20.png" type="Texture" id=101]
 [ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_22.png" type="Texture" id=102]
 [ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_26.png" type="Texture" id=103]
+[ext_resource path="res://Particles/ParticleDepop.tscn" type="PackedScene" id=104]
+[ext_resource path="res://Particles/ParticlePoP.tscn" type="PackedScene" id=105]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=37]
 length = 0.001
+
+[sub_resource type="Animation" id=26]
+resource_name = "death"
+length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("DeathParticle:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ) ]
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/path = NodePath("Run:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -127,8 +133,32 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Shoot:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -164,12 +194,21 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "respawn_player"
-} ]
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -225,6 +264,54 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("DeathParticle:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SpawnParticle:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -296,6 +383,93 @@ tracks/4/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=27]
+resource_name = "spawn"
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "respawn_player"
+}, {
+"args": [  ],
+"method": "unfreezePlayer"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DeathParticle:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpawnParticle:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Run:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "spawn"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "death"
+
 [sub_resource type="AnimationNodeAnimation" id=6]
 animation = "fall"
 
@@ -326,17 +500,42 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=18]
+states/Spawn/node = SubResource( 34 )
+states/Spawn/position = Vector2( 86, -36 )
+states/death/node = SubResource( 28 )
+states/death/position = Vector2( 52, 158 )
 states/fall/node = SubResource( 6 )
-states/fall/position = Vector2( 263, 178 )
+states/fall/position = Vector2( 318, -64 )
 states/freeze/node = SubResource( 7 )
 states/freeze/position = Vector2( 434, 183 )
 states/run/node = SubResource( 8 )
 states/run/position = Vector2( 299, 52 )
 states/shoot/node = SubResource( 9 )
 states/shoot/position = Vector2( 606, 62 )
-transitions = [ "run", "shoot", SubResource( 10 ), "shoot", "run", SubResource( 11 ), "shoot", "freeze", SubResource( 12 ), "run", "freeze", SubResource( 13 ), "run", "fall", SubResource( 14 ), "freeze", "fall", SubResource( 15 ), "fall", "run", SubResource( 16 ), "freeze", "run", SubResource( 17 ) ]
+transitions = [ "run", "shoot", SubResource( 10 ), "shoot", "run", SubResource( 11 ), "shoot", "freeze", SubResource( 12 ), "run", "freeze", SubResource( 13 ), "run", "fall", SubResource( 14 ), "freeze", "fall", SubResource( 15 ), "fall", "run", SubResource( 16 ), "freeze", "run", SubResource( 17 ), "run", "death", SubResource( 29 ), "fall", "death", SubResource( 30 ), "freeze", "death", SubResource( 31 ), "shoot", "death", SubResource( 32 ), "death", "Spawn", SubResource( 35 ), "Spawn", "run", SubResource( 36 ), "fall", "Spawn", SubResource( 38 ) ]
 start_node = "run"
+graph_offset = Vector2( 0, -90.7581 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
@@ -369,21 +568,29 @@ radius = 26.3059
 [sub_resource type="OccluderPolygon2D" id=25]
 polygon = PoolVector2Array( -52, -4, -2, -42, 42, -16, 40, 34, -2, 58, -38, 42 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" groups=[
-"Player",
-]]
+[node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 506, 269 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 1
 collision_layer = 2
+collision_mask = 17
 script = ExtResource( 1 )
 
+[node name="DeathParticle" parent="." instance=ExtResource( 104 )]
+emitting = false
+
+[node name="SpawnParticle" parent="." instance=ExtResource( 105 )]
+emitting = false
+amount = 25000
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 1 )
+anims/RESET = SubResource( 37 )
+anims/death = SubResource( 26 )
 anims/fall = SubResource( 2 )
 anims/freeze = SubResource( 3 )
 anims/run = SubResource( 4 )
 anims/shoot = SubResource( 5 )
+anims/spawn = SubResource( 27 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 18 )
@@ -393,10 +600,11 @@ parameters/playback = SubResource( 19 )
 [node name="Run" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 20 )
-frame = 18
+frame = 49
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
+visible = false
 frames = SubResource( 21 )
 frame = 50
 playing = true
@@ -404,6 +612,7 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2, 8 )
 shape = SubResource( 22 )
+disabled = true
 
 [node name="SpawnBallPoint" type="Node2D" parent="."]
 position = Vector2( -14, 128 )
@@ -429,5 +638,3 @@ shape = SubResource( 24 )
 light_mask = 0
 occluder = SubResource( 25 )
 light_mask = 0
-[connection signal="body_entered" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_entered"]
-[connection signal="body_exited" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_exited"]

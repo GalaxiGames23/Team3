@@ -11,4 +11,4 @@ func _physics_process(delta):
 	beam.scale.x = end.position.length()/64
 	rotate(rotation_speed)
 	if rayCast.get_collider().name == "Joueur":
-		get_node("../Joueur").respawn_player()
+		get_node("../Joueur").death()
