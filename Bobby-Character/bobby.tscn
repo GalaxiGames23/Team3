@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://Bobby-Character/bobby.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Bobby_Sprites/hipFire/Armature_hipFire_24.png" type="Texture" id=2]
@@ -105,6 +105,7 @@
 [ext_resource path="res://Assets/Bobby_Sprites/run/Armature_newAnimation_26.png" type="Texture" id=103]
 [ext_resource path="res://Particles/ParticleDepop.tscn" type="PackedScene" id=104]
 [ext_resource path="res://Particles/ParticlePoP.tscn" type="PackedScene" id=105]
+[ext_resource path="res://Bobby-Character/BobbyLO.tscn" type="PackedScene" id=106]
 
 [sub_resource type="Animation" id=37]
 length = 0.001
@@ -602,7 +603,7 @@ parameters/playback = SubResource( 19 )
 [node name="Run" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 20 )
-frame = 5
+frame = 16
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
@@ -640,3 +641,5 @@ shape = SubResource( 24 )
 light_mask = 0
 occluder = SubResource( 25 )
 light_mask = 0
+
+[node name="LightOccluder2D2" parent="." instance=ExtResource( 106 )]

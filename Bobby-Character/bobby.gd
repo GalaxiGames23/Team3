@@ -70,7 +70,7 @@ func get_input_velocity() -> Vector2:
 
 #fonction pour l'input
 func _input(event):
-	if event is InputEventKey and freeze==false:
+	if event is InputEventKey and freeze==false and is_falling==false:
 		#supprimer la liaison shoot->freeze dans le AnimationTree ne semble pas suffire, d'ou le freeze==false
 		if Input.is_action_pressed("ui_shoot") :
 			anim_state.travel("shoot")

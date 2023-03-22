@@ -17,7 +17,7 @@ func _ready():
 	nb_particles = $BasicParticles.amount
 	$IncreaseParticles.emitting = false
 	$BasicParticles.emitting = true
-	current_focus.myCamera = self
+
 
 func _physics_process(delta):
 	if current_focus:
