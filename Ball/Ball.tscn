@@ -178,6 +178,9 @@ tracks/2/keys = {
 "values": [ 7.0 ]
 }
 
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( 0, -50, 20, -45, 40, -30, 50, -10, 50, 10, 45, 25, 35, 35, 20, 45, 0, 50, -20, 45, -35, 35, -45, 20, -50, 0, -45, -20, -35, -35, -20, -45, 0, -50 )
+
 [node name="Ball" type="KinematicBody2D" groups=["Ball"]]
 scale = Vector2( 0.2, 0.2 )
 collision_layer = 4
@@ -230,5 +233,12 @@ texture = ExtResource( 2 )
 autoplay = "Try"
 anims/BallFadeOut = SubResource( 11 )
 anims/CanBreakSpeedAnim = SubResource( 4 )
+<<<<<<< HEAD
+anims/RESET = SubResource( 5 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 6 )
+=======
 anims/RESET = SubResource( 12 )
 anims/Try = SubResource( 9 )
+>>>>>>> 6a6f635521f6fe22614ea6c0743300413a693bb5
