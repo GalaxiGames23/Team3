@@ -9,11 +9,12 @@ var nb_particles
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var p = get_tree().get_nodes_in_group("Player")
+	print(get_tree().get_nodes_in_group("Player"))
 	current_focus = p[0]
 	nb_particles = $BasicParticles.amount
 	$IncreaseParticles.emitting = false
 	$BasicParticles.emitting = true
-	current_focus.myCamera = self
+
 
 func _physics_process(delta):
 	if current_focus:

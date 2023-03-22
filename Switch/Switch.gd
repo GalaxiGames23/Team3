@@ -6,6 +6,7 @@ extends Node2D
 # var b = "text"
 onready var area = get_node("Area2D")
 onready var anim = get_node("AnimatedSprite")
+var activ = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -15,10 +16,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(not area.get_overlapping_bodies().empty()):
-		anim.frame = 0
+		activ = 1
 	else :
-		anim.frame = 1
+		activ = 0
 
-	
+	anim.frame = activ
 	
 	pass
