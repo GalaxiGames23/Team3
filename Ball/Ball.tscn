@@ -186,10 +186,12 @@ collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="Node2D" type="Node2D" parent="."]
+light_mask = 0
 position = Vector2( 25, -4.37113e-06 )
 
 [node name="Line2D" type="Line2D" parent="Node2D"]
 modulate = Color( 1.50196, 1.50196, 1.50196, 0 )
+light_mask = 0
 material = SubResource( 7 )
 points = PoolVector2Array( 0, -5, -21.9445, -18.1667, -75, -50, -150, 10, -265, 85, -420, 115, 255, 180, 330, -115 )
 width = 7.0
@@ -200,10 +202,12 @@ script = ExtResource( 3 )
 length = 100
 
 [node name="Node2D2" type="Node2D" parent="."]
+light_mask = 0
 position = Vector2( -25, 4.37114e-06 )
 
 [node name="Line2D" type="Line2D" parent="Node2D2"]
 modulate = Color( 1.51765, 1.50196, 1.50196, 0 )
+light_mask = 0
 material = SubResource( 7 )
 points = PoolVector2Array( 0, -5, -21.9445, -18.1667, -75, -50, -150, 10, -265, 85, -420, 115, 255, 180, 330, -115 )
 width = 7.0
@@ -214,10 +218,12 @@ script = ExtResource( 3 )
 length = 100
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+light_mask = 0
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
 position = Vector2( -2, -2 )
 scale = Vector2( 2, 2 )
 z_index = 1
