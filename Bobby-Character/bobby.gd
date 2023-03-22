@@ -21,7 +21,6 @@ var myCamera
 var WallOnShoot : bool = false
 var ball_instance
 
-
 export var speed : float = 125.0
 export var acceleration: float = 500
 export var run_factor: float = 3

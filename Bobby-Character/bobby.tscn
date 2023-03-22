@@ -563,17 +563,11 @@ height = 0.0
 radius = 38.0
 
 [sub_resource type="CircleShape2D" id=24]
-radius = 34.2345
+radius = 26.3059
 
 [sub_resource type="OccluderPolygon2D" id=25]
-polygon = PoolVector2Array( -38, -16, 4, -40, 42, -16, 40, 34, -2, 58, -38, 42 )
+polygon = PoolVector2Array( -52, -4, -2, -42, 42, -16, 40, 34, -2, 58, -38, 42 )
 
-<<<<<<< HEAD
-[sub_resource type="OccluderPolygon2D" id=26]
-polygon = PoolVector2Array( 0, -4, 18, -50, 10, -56, 4, -68, -8, -64, -12, -72, -50, -64, -60, -56, -54, -48, -58, -40, -48, -8, -44, 10, -36, 14, -40, 20, -38, 100, -20, 100, -20, 82, 18, 74, 30, 74, 38, 58, 50, 26, 46, 18, 50, 6, 40, -20, 36, -32, 18, -50 )
-
-=======
->>>>>>> 6a6f635521f6fe22614ea6c0743300413a693bb5
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 506, 269 )
 scale = Vector2( 0.5, 0.5 )
@@ -604,8 +598,9 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 19 )
 
 [node name="Run" type="AnimatedSprite" parent="."]
+visible = false
 frames = SubResource( 20 )
-frame = 34
+frame = 49
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
@@ -615,46 +610,31 @@ frame = 50
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -2, 8 )
 shape = SubResource( 22 )
 disabled = true
 
 [node name="SpawnBallPoint" type="Node2D" parent="."]
-visible = false
 position = Vector2( -14, 128 )
 
 [node name="NoWallOnShoot" type="Area2D" parent="SpawnBallPoint"]
-visible = false
 collision_layer = 0
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBallPoint/NoWallOnShoot"]
-visible = false
 position = Vector2( 0, -2 )
 shape = SubResource( 23 )
 
 [node name="FallingZone" type="Area2D" parent="."]
-visible = false
 position = Vector2( 12, -16 )
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallingZone"]
-visible = false
 position = Vector2( -12, 16 )
 shape = SubResource( 24 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 light_mask = 0
 occluder = SubResource( 25 )
 light_mask = 0
-<<<<<<< HEAD
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
-occluder = SubResource( 26 )
-
-[connection signal="body_entered" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_entered"]
-[connection signal="body_exited" from="SpawnBallPoint/NoWallOnShoot" to="." method="_on_NoWallOnShoot_body_exited"]
-=======
->>>>>>> 6a6f635521f6fe22614ea6c0743300413a693bb5
