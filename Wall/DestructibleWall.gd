@@ -30,6 +30,7 @@ func reset_objet():
 func break_wall(body):
 	$AnimationPlayer.play("Break_Wall_Anim")
 	emmit_particles(body)
+	print("yop")
 	
 #Function to call when the wall remain untouched
 func not_break_wall():
@@ -56,7 +57,8 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Area2D_body_exited(body):
-	if body.is_in_group("Ball"):
+	if body.is_in_group("Ball") and $AnimationPlayer:
+		print("NICE")
 		emmit_particles(body)
 
 func emmit_particles(body):
