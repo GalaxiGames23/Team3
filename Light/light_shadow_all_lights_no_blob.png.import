@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/door_normal.jpeg-a2c8e8496e25803f2d098c36143364a3.stex"
+path="res://.import/light_shadow_all_lights_no_blob.png-1e0a3c331cf663fc085587c4f571b8c1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MarieMade/Doors/door_normal.jpeg"
-dest_files=[ "res://.import/door_normal.jpeg-a2c8e8496e25803f2d098c36143364a3.stex" ]
+source_file="res://Light/light_shadow_all_lights_no_blob.png"
+dest_files=[ "res://.import/light_shadow_all_lights_no_blob.png-1e0a3c331cf663fc085587c4f571b8c1.stex" ]
 
 [params]
 

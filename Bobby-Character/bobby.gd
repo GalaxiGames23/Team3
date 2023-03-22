@@ -21,6 +21,7 @@ var myCamera
 var WallOnShoot : bool = false
 var ball_instance
 
+
 export var speed : float = 125.0
 export var acceleration: float = 500
 export var run_factor: float = 3
@@ -47,7 +48,10 @@ func _physics_process(delta):
 			start_falling(get_slide_collision(0).collider)
 	elif is_falling:
 		move_and_slide(last_velocity)
-		last_velocity = last_velocity*(0.7+0.3*last_velocity.length()/(abs(last_velocity[0])+abs(last_velocity[1])))*0.98
+		var variable=(abs(last_velocity[0])+abs(last_velocity[1]))
+		if variable==0:
+			variable=0.001
+		last_velocity = last_velocity*(0.7+0.3*last_velocity.length()/variable)*0.98
 
 	
 		
