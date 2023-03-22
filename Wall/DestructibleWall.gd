@@ -30,7 +30,7 @@ func reset_objet():
 func break_wall(body):
 	$AnimationPlayer.play("Break_Wall_Anim")
 	emmit_particles(body)
-	print("yop")
+	body.break_a_wall_anim_for_cam()
 	
 #Function to call when the wall remain untouched
 func not_break_wall():

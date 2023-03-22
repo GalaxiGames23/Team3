@@ -306,7 +306,7 @@ position = Vector2( 412.728, -224.148 )
 
 [node name="Joueur" parent="." instance=ExtResource( 1 )]
 light_mask = 64
-position = Vector2( -327, -173 )
+position = Vector2( -426, -516 )
 collision_mask = 9
 speed = 150.0
 

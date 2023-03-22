@@ -68,6 +68,8 @@ func teleport_player():
 	myCamera.change_focus(save_player)
 	queue_free()
 
+func break_a_wall_anim_for_cam():
+	myCamera.play_hearthquake()
 """
 Récupère l'input du joueur et fait tendre la direction de la balle vers la direction 
 donnée par le joueur (rapproche de 10% par tick).
