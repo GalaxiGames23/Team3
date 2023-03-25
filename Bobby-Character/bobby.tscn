@@ -112,7 +112,7 @@ length = 0.001
 
 [sub_resource type="Animation" id=26]
 resource_name = "death"
-length = 2.0
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("DeathParticle:emitting")
 tracks/0/interp = 1
@@ -579,7 +579,6 @@ script = ExtResource( 1 )
 
 [node name="DeathParticle" parent="." instance=ExtResource( 104 )]
 z_index = 3
-emitting = false
 
 [node name="SpawnParticle" parent="." instance=ExtResource( 105 )]
 z_index = 3
@@ -603,7 +602,7 @@ parameters/playback = SubResource( 19 )
 [node name="Run" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 20 )
-frame = 16
+frame = 18
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]

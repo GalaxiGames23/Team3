@@ -14,6 +14,7 @@ func _ready():
 	var p = get_tree().get_nodes_in_group("Player")
 	dezoom *= sqrt(2)
 	current_focus = p[0]
+	p[0].myCamera = self
 	nb_particles = $BasicParticles.amount
 	$IncreaseParticles.emitting = false
 	$BasicParticles.emitting = true

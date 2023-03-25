@@ -12,6 +12,7 @@ export var can_break_wall_soft = true
 var spawn_direction
 var save_player
 var myCamera
+var ballwilldisapear = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +22,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if ((not can_break_wall_hard) and (speed >= speed_to_break_wall_hard)):
+	if ((not can_break_wall_hard) and (speed >= speed_to_break_wall_hard) and !ballwilldisapear):
 		can_break_wall_hard = true
 		can_break_wall_soft = false
 		myCamera.update_amount_particle(100)
@@ -97,3 +98,6 @@ func _on_KillPlayerTimer_timeout():
 
 func timer_is_finish():
 	return $AnimationPlayer.current_animation != "BallFadeOut"
+	
+func ball_disapear():
+	ballwilldisapear = true
