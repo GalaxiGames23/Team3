@@ -601,9 +601,8 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 19 )
 
 [node name="Run" type="AnimatedSprite" parent="."]
-visible = false
 frames = SubResource( 20 )
-frame = 16
+frame = 36
 playing = true
 
 [node name="Shoot" type="AnimatedSprite" parent="."]
