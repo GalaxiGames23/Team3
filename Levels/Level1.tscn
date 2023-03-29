@@ -14,7 +14,6 @@
 [ext_resource path="res://TileMap/GroundTileMap.tscn" type="PackedScene" id=12]
 [ext_resource path="res://TileMap/TileMap.tscn" type="PackedScene" id=13]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 40, 64, 40, 40, 64, 40 )
 

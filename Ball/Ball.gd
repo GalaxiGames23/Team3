@@ -45,11 +45,11 @@ func _physics_process(delta):
 				start_fade_out()
 				$Hitbox.disabled = true
 				save_player.death()
-			elif (get_slide_collision(0).collider.name == "WallThatBreakTheBall"):
+			elif (get_slide_collision(0).collider.name.substr(0,20) == "WallThatBreakTheBall"):
 				myCamera.change_focus(save_player)
 				save_player.freeze = false
 				queue_free()
-			elif (get_slide_collision(0).collider.name == "WallThatBounce"):
+			elif (get_slide_collision(0).collider.name.substr(0,14) == "WallThatBounce"):
 				if(is_on_wall()):
 					direction.x = -1*direction.x
 					velocity.x = -1*velocity.x
