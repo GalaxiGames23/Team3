@@ -167,6 +167,7 @@ position = Vector2( 10000, 0 )
 material = SubResource( 12 )
 position = Vector2( -9819, 22 )
 z_index = 5
+emitting = false
 amount = 500
 lifetime = 0.5
 preprocess = 0.25
@@ -175,6 +176,7 @@ texture = ExtResource( 4 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 69, 27 )
+emitting = false
 amount = 100
 lifetime = 0.5
 visibility_rect = Rect2( -500, -500, 500, 500 )

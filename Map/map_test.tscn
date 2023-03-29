@@ -298,7 +298,7 @@ position = Vector2( 412.728, -224.148 )
 
 [node name="Joueur" parent="." instance=ExtResource( 1 )]
 light_mask = 64
-position = Vector2( 432, -80 )
+position = Vector2( 458, -145 )
 collision_mask = 9
 speed = 150.0
 
@@ -432,3 +432,4 @@ position = Vector2( 30, -63 )
 [node name="Door_rot" parent="Link" instance=ExtResource( 17 )]
 position = Vector2( 116, -16 )
 rotation = 1.5708
+clockwise = true
