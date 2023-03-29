@@ -9,12 +9,13 @@ export var rotation_speed : float = 0.01
 
 
 var myPlayer
+
 func _ready():
 	get_node("End/Particles2D").emitting = true
 	$End/Particles2D.position = Vector2.ZERO
 	myPlayer = get_tree().get_nodes_in_group("Player")[0]
 	myBeam.position = Vector2.ZERO	
-	myBeam.set_point_position(0, Vector2.ZERO)
+	myBeam.set_point_position(0, Vector2(5.5,1))
 	$Particles2D.position = Vector2.ZERO
 
 func _physics_process(delta):

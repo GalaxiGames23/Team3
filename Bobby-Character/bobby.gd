@@ -21,9 +21,8 @@ var myCamera
 var WallOnShoot : bool = false
 var ball_instance
 
-export var speed : float = 125.0
-export var acceleration: float = 500
-export var run_factor: float = 3
+var speed : float = 500.0
+var acceleration: float = 2000
 
 func _ready():
 	
@@ -36,10 +35,7 @@ func _physics_process(delta):
 	if !freeze and !is_falling :
 		last_velocity = velocity
 		direction = get_input_velocity()
-		if (Input.is_action_pressed("ui_run")):
-			velocity = velocity.move_toward(direction * run_factor * speed, delta * acceleration*2.5) 
-		else:
-			velocity = velocity.move_toward(direction * speed, delta * acceleration) 
+		velocity = velocity.move_toward(direction * speed, delta * acceleration) 
 		if velocity.length() > speed/3 :
 			_orientation(direction + 0.2 * velocity.move_toward(direction * speed,acceleration * delta * 5))
 		velocity = move_and_slide(velocity,Vector2.UP)

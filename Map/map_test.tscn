@@ -8,8 +8,8 @@
 [ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/MarieMade/Wall/tileset_wall_normal_.tres" type="TileSet" id=7]
 [ext_resource path="res://Trap/trap.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Light/light.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Laser/Laser.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/Lights.gd" type="Script" id=11]
 [ext_resource path="res://Hole/hole_tilemap.png" type="Texture" id=12]
 [ext_resource path="res://Assets/BlocksAndWalls/colors_16.png" type="Texture" id=13]
 [ext_resource path="res://icon.png" type="Texture" id=14]
@@ -156,81 +156,6 @@ points = PoolVector2Array( 0, 0, 84, 0, 84, 80, 0, 80 )
 [node name="Node2D" type="Node2D"]
 position = Vector2( 65, -70 )
 
-[node name="Lights" type="Node2D" parent="."]
-visible = false
-position = Vector2( -1389, 238 )
-script = ExtResource( 11 )
-
-[node name="Light2D9" type="Light2D" parent="Lights"]
-position = Vector2( -196, 510 )
-z_index = -1
-offset = Vector2( 261, 64 )
-texture_scale = 3.66
-range_item_cull_mask = 2
-shadow_enabled = true
-
-[node name="Light2D8" type="Light2D" parent="Lights"]
-position = Vector2( 2160, -396 )
-z_index = -1
-offset = Vector2( 261, 64 )
-texture_scale = 3.66
-range_item_cull_mask = 2
-shadow_enabled = true
-
-[node name="Light2D7" type="Light2D" parent="Lights"]
-position = Vector2( 1912, 52 )
-z_index = -1
-offset = Vector2( 261, 64 )
-texture_scale = 3.66
-range_item_cull_mask = 2
-shadow_enabled = true
-
-[node name="Light2D6" type="Light2D" parent="Lights"]
-position = Vector2( 906, -414 )
-z_index = -1
-offset = Vector2( 261, 64 )
-texture_scale = 3.66
-range_item_cull_mask = 2
-shadow_enabled = true
-
-[node name="Light2D5" type="Light2D" parent="Lights"]
-position = Vector2( -299, -525 )
-z_index = -1
-offset = Vector2( 261, 64 )
-texture_scale = 3.66
-range_item_cull_mask = 2
-shadow_enabled = true
-
-[node name="Light2D4" type="Light2D" parent="Lights"]
-position = Vector2( 1505, -370 )
-z_index = -1
-offset = Vector2( 261, 64 )
-texture_scale = 3.66
-range_item_cull_mask = 2
-shadow_enabled = true
-
-[node name="Light2D3" type="Light2D" parent="Lights"]
-position = Vector2( 653, 155 )
-z_index = -1
-offset = Vector2( 261, 64 )
-texture_scale = 3.66
-range_item_cull_mask = 2
-shadow_enabled = true
-
-[node name="Light2D2" type="Light2D" parent="Lights"]
-position = Vector2( 375, -238 )
-z_index = -1
-offset = Vector2( 261, 64 )
-texture_scale = 3.66
-range_item_cull_mask = 2
-shadow_enabled = true
-
-[node name="Light2D" type="Light2D" parent="Lights"]
-z_index = -1
-texture_scale = 3.66
-range_item_cull_mask = 2
-shadow_enabled = true
-
 [node name="GroundTileMap" parent="." instance=ExtResource( 3 )]
 light_mask = 3
 collision_layer = 0
@@ -274,9 +199,8 @@ position = Vector2( 412.728, -224.148 )
 
 [node name="Joueur" parent="." instance=ExtResource( 1 )]
 light_mask = 64
-position = Vector2( 458, -145 )
+position = Vector2( 775, -35 )
 collision_mask = 9
-speed = 150.0
 
 [node name="FollowCam" parent="." instance=ExtResource( 5 )]
 smoothing_enabled = true
@@ -398,6 +322,9 @@ tile_data = PoolIntArray( -327696, 0, 0, -327695, 0, 0, -327694, 0, 0, -327693, 
 [node name="Laser1" parent="." instance=ExtResource( 10 )]
 position = Vector2( 940, 133 )
 rotation_speed = 0.5
+
+[node name="LightBlock" parent="." instance=ExtResource( 9 )]
+position = Vector2( -728, 121 )
 
 [node name="Link" parent="." instance=ExtResource( 16 )]
 position = Vector2( 266, -514 )
